@@ -6,6 +6,8 @@ use sha3::{Digest, Sha3_256};
 const HASH_SIZE: usize = 256usize;
 const HASH_SIZE_BYTE: usize = 32usize; // HASH_SIZE >> 3
 
+// 代码只是用于验证
+
 #[derive(Default, Clone, Copy)]
 struct Bytes32 {
     pub inner: [u8; 32],
