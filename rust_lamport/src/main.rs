@@ -192,7 +192,7 @@ impl ShortLamport {
         let mut sign = Vec::new();
 
         for i in 0..G_SHORT_GROUP {
-            let val = msg.inner[i] as usize;
+            let val = msg.inner[i] as usize + 1;
 
             // A
             let buf = Self::get_loop_hash(&self.pri_key_a[i], val);
@@ -207,7 +207,7 @@ impl ShortLamport {
 
     pub fn verify(&self, msg: Bytes32, sign: &[Bytes32]) -> bool {
         for i in 0..G_SHORT_GROUP {
-            let val = msg.inner[i] as usize;
+            let val = msg.inner[i] as usize + 1;
 
             let sign_all = &sign[(i * 2)..(i + 1) * 2];
             let sign_a = &sign_all[0];
